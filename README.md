@@ -1,6 +1,6 @@
 # Heart Failure Prediction with MICROSOFT AZURE
 
- In this project, I will be creating two models: one using Automated ML one customized model whose hyperparameters are tuned using HyperDrive for predicting death event of a patient.I had compared the performance of both the models and deploy the best performing model.
+In this project, I will be creating two models:one using Automated ML one customized model whose hyperparameters are tuned using HyperDrive for predicting death event of a patient.I had compared the performance of both the models and deploy the best performing model.
  
  ## Project Workflow
  
@@ -9,15 +9,15 @@
 ## Project Set Up and Installation
 The starter files needed to run this project are the following:
 
-automl.ipynb:Jupyter Notebook to run the autoML experiment
+automl.ipynb : Jupyter Notebook to run the autoML experiment
 
-hyperparameter_tuning.ipynb:Jupyter Notebook to run the Hyperdrive experiment
+hyperparameter_tuning.ipynb : Jupyter Notebook to run the Hyperdrive experiment
 
-train.py:Script used in Hyperdrive
+train.py : Script used in Hyperdrive
 
-score.py:Script used to deploy the model
+score.py : Script used to deploy the model
 
-heart_failure_clinical_records_dataset.csv:The dataset
+heart_failure_clinical_records_dataset.csv : The dataset
 
 ## Dataset
 
@@ -75,7 +75,7 @@ I got RunDetails as follows:
 
 We can see above that the Dataset pass the 4 Data Guardrails: Cross Validation, Class Balancing Detection, Missing Feature Value and High Cardinality Feature Detection.
 
-The best model was VotingEnsemble with 0.8665.
+The best model was VotingEnsemble with 0.8665.The Voting Ensemble estimates multiple base models and uses voting to combine the individual predictions to arrive at the final ones.
 
 The best model with its run Id is shown below.
 ![Screenshot (452)](https://user-images.githubusercontent.com/75804779/104837346-dcc55700-58d9-11eb-8251-eaba9002ab18.png)
@@ -84,22 +84,41 @@ The parameters of best model trained are:
 ![Screenshot (454)](https://user-images.githubusercontent.com/75804779/104837416-50fffa80-58da-11eb-8987-005af0e1c452.png)
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+Hyperparameter tuning is done by building a hyperdrive service using Jupyter notebook.First I initialize the azure machine learning workspace, then created a compute cluster to run the experiments on and check for existing cluster. Now the existing cluster is found so it was used instead of creating a new cluster.For this Logistic Regression algorithm was used.This is based on hyperparameters such as -C(Inverse of Regularization Strength) and -max_iter(Maximum number of iterations to converge). ps = RandomParameterSampling({ "--C" : uniform(0.5,1.0), "--max_iter" : choice(50,100,150,200) })
 
+The sampling method I used is RandomSampling.It supports early termination of low-performance runs.For this a scikit-learn estimator for the training script and a HyperDriveConfig was created.
+
+The advantage of using Random Sampling is that it helps to avoid bias.It also helps in choosing the best hyperparameters and optimize for speed versus accuracy. It supports both discrete and continuous values. It supports early termination of low-performance runs. In Random Sampling, the values are selected randomly from a defined search space.
+
+With the help of Early Termination policy, we can terminate poorly performing runs.Here I used Bandit Policy.Bandit Policy is based on slack factor and evaluation interval. This policy will terminate runs whose primary metric is not within the specified slack factor.The bandit policy helped to avoid burning up a lot of resources while trying to find an optimal parameter, it terminates any run that does not fall within the slack factor's range.
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+The RunDetails are as follows:
+![Screenshot (457)](https://user-images.githubusercontent.com/75804779/104840131-7f3a0600-58eb-11eb-990a-822b3228b317.png)
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+The best run, its run id and hyperparameters are shown below
+![Screenshot (459)](https://user-images.githubusercontent.com/75804779/104840904-3e8ebc80-58ec-11eb-852b-3db8342d3939.png)
+
+![Screenshot (460)](https://user-images.githubusercontent.com/75804779/104841470-667e2000-58ec-11eb-8dac-21bfe4eb8b0b.png)
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+In AutoML model I got the accuracy 0.8665 and in hyperparameter tuning by hyperdrive I got accuracy 0.85.
+So,the best model was of AutoML and I decided to deploy it.
 
+Following steps are performed to deploy the model:
+1.Creating a scoring script for sending request to the web service. This script must have the init() and run(input_data) functions.
+
+2.Defining the inference and the deployment configuration
+
+3.Create the environment for the deployment where Azure Machine Learning can install the necessary packages
+
+![Screenshot (462)](https://user-images.githubusercontent.com/75804779/104842940-2324b100-58ee-11eb-934d-e3b4e072b38b.png)
+
+![Screenshot (463)](https://user-images.githubusercontent.com/75804779/104842951-346dbd80-58ee-11eb-9242-84f452fd0d0a.png)
+In this we can se that the ststus is termed as 'Healthy'.
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+
+Link: https://drive.google.com/file/d/1LGBoCP8YHhU1SB9cnFeKKa1NY1Bxbm_z/view?usp=sharing
 
 ## Standout Suggestions
 *TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
