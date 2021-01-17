@@ -10,9 +10,13 @@
 The starter files needed to run this project are the following:
 
 automl.ipynb:Jupyter Notebook to run the autoML experiment
+
 hyperparameter_tuning.ipynb:Jupyter Notebook to run the Hyperdrive experiment
+
 train.py:Script used in Hyperdrive
+
 score.py:Script used to deploy the model
+
 heart_failure_clinical_records_dataset.csv:The dataset
 
 ## Dataset
@@ -38,6 +42,7 @@ To predict whether the persion will get have heart failure or not.
 ### Access
 We use 2 ways to access the data in the workspace:
 1.In AutoML I used read_csv() Pandas function to get file locally.
+
 2.For Hyperdrive, I used Dataset.Tabular.from_delimited_files() in the train script to get the file with URL.
 
 ## Automated ML
@@ -45,6 +50,7 @@ Following are the automl sttings and configuration for this experiment.
 ![Screenshot (446)](https://user-images.githubusercontent.com/75804779/104837000-c4ecd380-58d7-11eb-8094-63391e66f104.png)
 
 Important automl settings that I used are experiment_timeout_minutes and max_concurrent_iterations.The experiment_timeout_minutes means the maximum amount of time in minutes that all iterations combined can take before the experiment terminates and the max_concurrent_iterations means the maximun number of iterations that would be executed in parallel.
+
 Here I have selected task Classification, with AUC_weighted as primary metric and the target I want to find is the  DEATH_EVENT. The train_data is0 TabularDataset type.Finally, I have enabled early stopping to avoid overfitting.
 
 ### Results
