@@ -114,11 +114,13 @@ Following steps are performed to deploy the model:
 
 ![Screenshot (462)](https://user-images.githubusercontent.com/75804779/104842940-2324b100-58ee-11eb-934d-e3b4e072b38b.png)
 
-![Screenshot (463)](https://user-images.githubusercontent.com/75804779/104842951-346dbd80-58ee-11eb-9242-84f452fd0d0a.png)
+![Screenshot (464)](https://user-images.githubusercontent.com/75804779/104843275-c32f0a00-58ef-11eb-9499-c128b1811e59.png)
 In this we can se that the ststus is termed as 'Healthy'.
 ## Screen Recording
 
 Link: https://drive.google.com/file/d/1LGBoCP8YHhU1SB9cnFeKKa1NY1Bxbm_z/view?usp=sharing
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+1.Can convert  the model to ONNX format.
+2.We can use of other classification algorithms in hyperdrive run.
+3.Better tuning of hyperparameters can be done.We can improve the Parameter sampler.
