@@ -23,17 +23,29 @@ heart_failure_clinical_records_dataset.csv:The dataset
 
 ### Overview
 This dataset can be found in https://www.kaggle.com/andrewmvd/heart-failure-clinical-data. Heart failure is a common event caused by CVDs and this dataset contains 12 features that can be used to predict mortality by heart failure.
+
 1.Age
+
 2.Anaemia:Decrease of red blood cells or hemoglobin (boolean)
+
 3.Creatinine_phosphokinase:Level of the CPK enzyme in the blood (mcg/L)
+
 4.Diabetes:If the patient has diabetes (boolean)
-5.Ejection_fraction:Percentage of blood leaving the heart at each contraction 
+
+5.Ejection_fraction:Percentage of blood leaving the heart at each contraction
+
 6.High_blood_pressure:If the patient has hypertension (boolean)
+
 7.Platelets:Platelets in the blood (kiloplatelets/mL)
+
 8.Serum_creatinine:Level of serum creatinine in the blood (mg/dL)
+
 9.Serum_sodium:Level of serum sodium in the blood (mEq/L)
+
 10.Sex:Woman or man (binary)
+
 11.Smoking
+
 12.Time
 
 ### Task
@@ -41,6 +53,7 @@ To predict whether the persion will get have heart failure or not.
 
 ### Access
 We use 2 ways to access the data in the workspace:
+
 1.In AutoML I used read_csv() Pandas function to get file locally.
 
 2.For Hyperdrive, I used Dataset.Tabular.from_delimited_files() in the train script to get the file with URL.
@@ -61,6 +74,7 @@ I got RunDetails as follows:
 ![Screenshot (451)](https://user-images.githubusercontent.com/75804779/104837270-67f21d00-58d9-11eb-9bcd-f1727f139789.png)
 
 We can see above that the Dataset pass the 4 Data Guardrails: Cross Validation, Class Balancing Detection, Missing Feature Value and High Cardinality Feature Detection.
+
 The best model was VotingEnsemble with 0.8665.
 
 The best model with its run Id is shown below.
