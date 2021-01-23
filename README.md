@@ -1,6 +1,6 @@
 # Heart Failure Prediction with MICROSOFT AZURE
 
-In this project, I will be creating two models:one using Automated ML one customized model whose hyperparameters are tuned using HyperDrive for predicting death event of a patient.I had compared the performance of both the models and deploy the best performing model.
+In this project, I will be creating two models:one using Automated ML one customized model whose hyperparameters are tuned using HyperDrive for predicting death event of a patient.I had compared the performance of both the models and deploy the best performing model.Here I have used the heart failure prediction dataset.
  
  ## Project Workflow
  
@@ -49,7 +49,7 @@ This dataset can be found in https://www.kaggle.com/andrewmvd/heart-failure-clin
 12.Time
 
 ### Task
-To predict whether the persion will get have heart failure or not.
+To predict whether the person will get have heart failure or not.
 
 ### Access
 We use 2 ways to access the data in the workspace:
@@ -70,12 +70,15 @@ Here I have selected task Classification, with AUC_weighted as primary metric an
 I got RunDetails as follows:
 
 ![Screenshot (449)](https://user-images.githubusercontent.com/75804779/104837240-34af8e00-58d9-11eb-9627-a578ff8abd25.png)
-![Screenshot (450)](https://user-images.githubusercontent.com/75804779/104837247-44c76d80-58d9-11eb-8359-8b8f4c1e8f0a.png)
-![Screenshot (451)](https://user-images.githubusercontent.com/75804779/104837270-67f21d00-58d9-11eb-9bcd-f1727f139789.png)
 
 We can see above that the Dataset pass the 4 Data Guardrails: Cross Validation, Class Balancing Detection, Missing Feature Value and High Cardinality Feature Detection.
 
-The best model was VotingEnsemble with 0.8665.The Voting Ensemble estimates multiple base models and uses voting to combine the individual predictions to arrive at the final ones.
+![Screenshot (501)](https://user-images.githubusercontent.com/75804779/105579850-03d6c980-5daf-11eb-882d-308043605665.png)
+![Screenshot (503)](https://user-images.githubusercontent.com/75804779/105579997-beff6280-5daf-11eb-9fbe-a21a217a584a.png)
+
+![Screenshot (502)](https://user-images.githubusercontent.com/75804779/105579873-2a950000-5daf-11eb-8636-ea254dec41e5.png)
+
+The best model was VotingEnsemble with 0.87939.The Voting Ensemble estimates multiple base models and uses voting to combine the individual predictions to arrive at the final ones.
 
 The best model with its run Id is shown below.
 ![Screenshot (452)](https://user-images.githubusercontent.com/75804779/104837346-dcc55700-58d9-11eb-8251-eaba9002ab18.png)
