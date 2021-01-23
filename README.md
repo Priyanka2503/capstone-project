@@ -122,13 +122,19 @@ Here, it can be seen that the ACI service Creation is successful.
 
 We can get the scoring URI from the endpoint section.
 ![Screenshot (506)](https://user-images.githubusercontent.com/75804779/105595250-63d26d80-5db9-11eb-830f-b9c8fa985831.png)
-In this we can se that the ststus is termed as 'Healthy'.
+In this we can se that the status is termed as 'Healthy'.
 
 Now, a request has been sent to the webservice that is deployed to test the given data.
+![Screenshot (508)](https://user-images.githubusercontent.com/75804779/105598997-65506580-5dba-11eb-9c91-d90d7756dae2.png)
+Here,[0] is the negative prediction of Death Event and the positive prediction is [1].
+In this, first test set is giving positive prediction and second test case is giving negative prediction.
+
+![Screenshot (509)](https://user-images.githubusercontent.com/75804779/105601942-3981af80-5dbb-11eb-91a6-9863cee86030.png)
+And finally I deleted the service that was created.
 
 ## Screen Recording
 
-Link: https://drive.google.com/file/d/1LGBoCP8YHhU1SB9cnFeKKa1NY1Bxbm_z/view?usp=sharing
+Link: https://drive.google.com/file/d/17HSRd5JHpzJtqD1VcRs95XDzcNHFg2iR/view?usp=sharing
 
 ## Standout Suggestions
 
