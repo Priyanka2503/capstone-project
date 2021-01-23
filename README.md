@@ -105,7 +105,7 @@ The best run, its run id and hyperparameters are shown below
 ![Screenshot (460)](https://user-images.githubusercontent.com/75804779/104841470-667e2000-58ec-11eb-8dac-21bfe4eb8b0b.png)
 
 ## Model Deployment
-In AutoML model I got the accuracy 0.8665 and in hyperparameter tuning by hyperdrive I got accuracy 0.85.
+In AutoML model I got the accuracy 0.87939 and in hyperparameter tuning by hyperdrive I got accuracy 0.85.
 So,the best model was of AutoML and I decided to deploy it.
 
 Following steps are performed to deploy the model:
@@ -115,15 +115,25 @@ Following steps are performed to deploy the model:
 
 3.Create the environment for the deployment where Azure Machine Learning can install the necessary packages
 
-![Screenshot (462)](https://user-images.githubusercontent.com/75804779/104842940-2324b100-58ee-11eb-934d-e3b4e072b38b.png)
+![Screenshot (504)](https://user-images.githubusercontent.com/75804779/105593070-cd9e4780-5db8-11eb-9025-a81827270a23.png)
 
-![Screenshot (464)](https://user-images.githubusercontent.com/75804779/104843275-c32f0a00-58ef-11eb-9499-c128b1811e59.png)
+![Screenshot (505)](https://user-images.githubusercontent.com/75804779/105594023-0e965c00-5db9-11eb-813a-ce80c6065269.png)
+Here, it can be seen that the ACI service Creation is successful.
+
+We can get the scoring URI from the endpoint section.
+![Screenshot (506)](https://user-images.githubusercontent.com/75804779/105595250-63d26d80-5db9-11eb-830f-b9c8fa985831.png)
 In this we can se that the ststus is termed as 'Healthy'.
+
+Now, a request has been sent to the webservice that is deployed to test the given data.
+
 ## Screen Recording
 
 Link: https://drive.google.com/file/d/1LGBoCP8YHhU1SB9cnFeKKa1NY1Bxbm_z/view?usp=sharing
 
 ## Standout Suggestions
+
 1.Can convert  the model to ONNX format.
+
 2.We can use of other classification algorithms in hyperdrive run.
+
 3.Better tuning of hyperparameters can be done.We can improve the Parameter sampler.
